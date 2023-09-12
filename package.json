@@ -4,7 +4,7 @@
   "description": "automatic generate stories for storybook",
   "version": "0.0.1",
   "engines": {
-    "vscode": "^1.82.0"
+    "vscode": "^1.70.0"
   },
   "categories": [
     "Other"
@@ -12,10 +12,12 @@
   "activationEvents": [],
   "main": "./extension.js",
   "contributes": {
-    "commands": [{
-      "command": "auto-generate-stories.helloWorld",
-      "title": "Hello World"
-    }]
+    "commands": [
+      {
+        "command": "auto-generate-stories.helloWorld",
+        "title": "Hello World"
+      }
+    ]
   },
   "scripts": {
     "lint": "eslint .",
@@ -23,7 +25,7 @@
     "test": "node ./test/runTest.js"
   },
   "devDependencies": {
-    "@types/vscode": "^1.82.0",
+    "@types/vscode": "^1.70.0",
     "@types/mocha": "^10.0.1",
     "@types/node": "16.x",
     "eslint": "^8.47.0",
@@ -31,5 +33,10 @@
     "mocha": "^10.2.0",
     "typescript": "^5.1.6",
     "@vscode/test-electron": "^2.3.4"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/uuunnnoly/auto-generate-stories.git"
+  },
+  "license": "UNLICENSED"
 }

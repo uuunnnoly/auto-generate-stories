@@ -1,6 +1,6 @@
 # auto-generate-stories README
 
-This is the README for your extension "auto-generate-stories". After writing up a brief description, we recommend including the following sections.
+
 
 ## Features
 
