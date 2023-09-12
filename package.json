@@ -14,10 +14,24 @@
   "contributes": {
     "commands": [
       {
-        "command": "auto-generate-stories.helloWorld",
-        "title": "Hello World"
+        "command": "autoGenerateStories",
+        "title": "Auto Generate Stories"
       }
-    ]
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "autoGenerateStories",
+          "group": "navigation"
+        }
+      ],
+      "explorer/context": [
+        {
+          "command": "autoGenerateStories",
+          "group": "navigation"
+        }
+      ]
+    }
   },
   "scripts": {
     "lint": "eslint .",
@@ -38,5 +52,5 @@
     "type": "git",
     "url": "https://github.com/uuunnnoly/auto-generate-stories.git"
   },
-  "license": "UNLICENSED"
+  "license": "MIT"
 }
