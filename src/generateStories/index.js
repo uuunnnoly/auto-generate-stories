@@ -3,7 +3,7 @@ const intermock = require('typescript-automock');
 const collectDependencies = require('./traverse');
 const getTemplate = require('./template');
 
-const generateStoriesTemplate = path => {
+const generateStories = path => {
   const dirPath = path.replace(/.*src\//, '');
   const componentName = getComponentName(path);
   const args = getComponentArgs(path);
@@ -42,4 +42,4 @@ const transformArgs = args => {
   return args;
 }
 
-module.exports = generateStoriesTemplate;
+module.exports = generateStories;
