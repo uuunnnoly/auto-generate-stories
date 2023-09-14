@@ -1,5 +1,6 @@
 const vscode = require('vscode');
 const fs = require('fs');
+const generateStoriesTemplate = require('./generateStories');
 
 /**
  * @param {vscode.ExtensionContext} context
@@ -15,13 +16,17 @@ function activate(context) {
 function deactivate() { }
 
 async function generateStories(path) {
-  if (!path) {
+	if (!path) {
     path = vscode.window.activeTextEditor?.document.uri.fsPath ?? "";
   }
   const stats = fs.statSync(path);
 
   if (stats.isDirectory()) {
-		vscode.window.showInformationMessage(path)
+		const stories = generateStoriesTemplate(path);
+		fs.writeFile(`${path}/index.stories.tsx`, stories,
+      (err) => {
+        if (err) throw err;
+      });
 	}
 }
 
