@@ -21,8 +21,7 @@ async function generateStories(path) {
   const stats = fs.statSync(path);
 
   if (stats.isDirectory()) {
-		vscode.window.showInformationMessage('is directory:', path)
-		
+		vscode.window.showInformationMessage(path)
 	}
 }
 
