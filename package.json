@@ -15,7 +15,7 @@
     "commands": [
       {
         "command": "autoGenerateStories",
-        "title": "Auto Generate Stories"
+        "title": "Add Stories"
       }
     ],
     "menus": {
