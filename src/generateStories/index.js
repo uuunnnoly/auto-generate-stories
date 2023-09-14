@@ -3,6 +3,14 @@ const intermock = require('typescript-automock');
 const collectDependencies = require('./traverse');
 const getTemplate = require('./template');
 
+const generateStoriesTemplate = path => {
+  const dirPath = path.replace(/.*src\//, '');
+  const componentName = getComponentName(path);
+  const args = getComponentArgs(path);
+
+  return getTemplate(dirPath, componentName, args);
+}
+
 const getComponentArgs = dirPath => {
   const mockArgs = intermock.mock({
     files: transformFilePath(dirPath),
@@ -16,9 +24,7 @@ const getComponentArgs = dirPath => {
 
 const transformFilePath = dirPath => {
   const componentPath = `${dirPath}/index.tsx`;
-
   const importedPaths = collectDependencies([componentPath]);
-  console.log('importedPaths',importedPaths)
 
   return importedPaths.map(path => [path,fs.readFileSync(path).toString()]);
 }
@@ -34,14 +40,6 @@ const getComponentPropsName = dirPath => {
 const transformArgs = args => {
   console.log(args)
   return args;
-}
-
-const generateStoriesTemplate = path => {
-  const dirPath = path.replace(/.*src\//, '');
-  const componentName = getComponentName(path);
-  const args = getComponentArgs(path);
-
-  return getTemplate(dirPath, componentName, args);
 }
 
 module.exports = generateStoriesTemplate;
